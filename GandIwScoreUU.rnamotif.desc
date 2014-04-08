@@ -1,0 +1,104 @@
+# GandIwScoreUU.rnamotif.desc
+
+###############################################################################
+#         ____  _   _____   ___   ____  _____                      __         #
+#        / __ \/ | / /   | |__ \ / __ \/ ___/___  ____ ___________/ /_        #
+#       / /_/ /  |/ / /| | __/ // / / /\__ \/ _ \/ __ `/ ___/ ___/ __ \       #
+#      / _, _/ /|  / ___ |/ __// /_/ /___/ /  __/ /_/ / /  / /__/ / / /       #
+#     /_/ |_/_/ |_/_/  |_/____/_____//____/\___/\__,_/_/   \___/_/ /_/        #
+#                                                                             #
+###############################################################################
+#                                                                             #
+#       RNA2DSearch is an open source bioinformatics pipeline for searching   #
+#       for short RNA secondary structures similar to user defined reference  #
+#       structures on a genomic scale.                                        #
+#                                                                             #
+#       Contact: Russell.Hamilton@bioch.ox.ac.uk                              #
+#                http://www.rna2dsearch.com                                   #
+#                Department of Biochemistry,                                  #
+#                University of Oxford, OX1 3QU                                #
+#       Copyright (C) 2008 Russell S. Hamilton                                #
+#                                                                             #
+###############################################################################
+# GNU Licence Details:                                                        #
+# This program is free software; you can redistribute it and/or modify it     #
+# under the terms of the GNU General Public License as published by the Free  #
+# Software Foundation; either version 2 of the License, or (at your option)   #
+# any later version.                                                          #
+#                                                                             #
+# This program is distributed in the hope that it will be useful, but WITHOUT #
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or       #
+# FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for    #
+# more details (See http://www.opensource.org/licenses/gpl-license.php).      #
+#                                                                             #
+# You should have received a copy of the GNU General Public License along     #
+# with this program; if not, write to the Free Software Foundation, Inc.,     #
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA                       #
+###############################################################################
+
+# Matches grk and I factor localisation signal structures
+# Has sequence constraints
+# + UU in top bulge
+# Scoring
+# + loop length, stem, bulge
+# + grk +ve score, I factor -ve score
+
+
+
+parms 
+	wc += gu;
+
+descr
+
+	h5( minlen=5,  maxlen=9, tag='stem1' )
+
+	ss( len=2, tag='bulge1' )
+
+		h5( len=4, tag='stem2')
+
+		ss( minlen=0,  maxlen=1, tag='bulge2' )
+
+			h5( minlen=2,  maxlen=4, tag='stem3' )
+
+		        ss( len=1, tag='bulge3' )
+
+				h5( minlen=7,  maxlen=8, tag='stem4' )
+
+		                ss( minlen=4, maxlen=12, tag='loop' )
+
+				h3(tag='stem4')
+
+			ss( minlen=3,  maxlen=5, seq='[ut][ut]', tag='bulge4' )
+
+			h3(tag='stem3')
+
+		ss( minlen=0,  maxlen=1, tag='bulge5' )
+
+		h3(tag='stem2')
+
+        ss( minlen=1,  maxlen=2, tag='bulge6' )
+
+        h3(tag='stem1')
+
+
+
+score
+   {
+     SCORE = 0.0;
+     if( length(ss(tag='loop')) > 8)
+       SCORE += 10;
+     else if( length(ss(tag='loop')) < 8)
+       SCORE += -10;
+
+     if( length(h5(tag='stem4')) == 8)
+       SCORE += 10;
+     else if( length(h5(tag='stem4')) == 7)
+       SCORE += -10;
+     
+     if( length(ss(tag='bulge4')) < 4)
+       SCORE += 10;
+     else if( length(ss(tag='bulge4')) > 4)
+       SCORE += -10;
+
+
+   }

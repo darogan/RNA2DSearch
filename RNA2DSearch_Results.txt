@@ -1,0 +1,94 @@
+###############################################################################
+#         ____  _   _____   ___   ____  _____                      __         #
+#        / __ \/ | / /   | |__ \ / __ \/ ___/___  ____ ___________/ /_        #
+#       / /_/ /  |/ / /| | __/ // / / /\__ \/ _ \/ __ `/ ___/ ___/ __ \       #
+#      / _, _/ /|  / ___ |/ __// /_/ /___/ /  __/ /_/ / /  / /__/ / / /       #
+#     /_/ |_/_/ |_/_/  |_/____/_____//____/\___/\__,_/_/   \___/_/ /_/        #
+#                                                                             #
+###############################################################################
+#                                                                             #
+#       RNA2DSearch is an open source bioinformatics pipeline for searching   #
+#       for short RNA secondary structures similar to user defined reference  #
+#       structures on a genomic scale.                                        #
+#                                                                             #
+#       Contact: Russell.Hamilton@bioch.ox.ac.uk                              #
+#                http://www.rna2dsearch.com                                   #
+#                Department of Biochemistry,                                  #
+#                University of Oxford, OX1 3QU                                #
+#       Copyright (C) 2008 Russell S. Hamilton                                #
+#                                                                             #
+###############################################################################
+# GNU Licence Details:                                                        #
+# This program is free software; you can redistribute it and/or modify it     #
+# under the terms of the GNU General Public License as published by the Free  #
+# Software Foundation; either version 2 of the License, or (at your option)   #
+# any later version.                                                          #
+#                                                                             #
+# This program is distributed in the hope that it will be useful, but WITHOUT #
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or       #
+# FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for    #
+# more details (See http://www.opensource.org/licenses/gpl-license.php).      #
+#                                                                             #
+# You should have received a copy of the GNU General Public License along     #
+# with this program; if not, write to the Free Software Foundation, Inc.,     #
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA                       #
+###############################################################################
+
++---------+-----------------+------+------+------+------+------------------------------------------------------------------------+------------------------------------------------------------------------+
+| GENE/TE + NAME            | ILSD | ILSF | GLSD | ILSF | SEQUENCE                                                               | STRUCTURE BRACKET NOTATION                                             |
++---------+-----------------+------+------+------+------+------------------------------------------------------------------------+------------------------------------------------------------------------+
+| GLS     | GLS             | 0.24 | 0.68 | 0.00 | 0.00 | aaguaauuuucgugcucucaacaauugucgccgucacagauuguuguucgagccgaaucuuacu       | .(((((..((((.((((.((((((((((.......))).)))))))...))))))))..)))))       |
+| TE19969 | 1360            | 0.10 | 0.39 | 0.24 | 0.61 | agauauucagagagagauuaauuucuuaaaguugacaguaguuuucugagauca                 | .(((.(((((((((...(((((((....)))))))......)))))))))))).                 |
+| TE20325 | 1731            | 0.10 | 0.39 | 0.22 | 0.65 | uguguguugaauauaggccauuugcacaugugcauauguaauucuguaugagaacauaca           | .(((((((..(((((((.(((.((((....)))).)))....)))))))...))))))).           |
+| TE19242 | 297             | 0.11 | 0.41 | 0.21 | 0.69 | ugauauaauuauuuacuauuuuugcucauaacgauauuaaagauaacgauauuac                | ((((((..((((((..((((.(((....))).))))....))))))..)))))).                |
+| TE19242 | 297             | 0.11 | 0.41 | 0.21 | 0.69 | ugauauaauuauuuacuauuuuugcucauaacgauauuaaagauaacgauauuac                | ((((((..((((((..((((.(((....))).))))....))))))..)))))).                |
+| TE20201 | 3S18            | 0.11 | 0.51 | 0.27 | 0.73 | cccagagaagucaugucgauuuucaguucgagagaauuaaacuuccgacuuuuucugga            | .((((((((.....(((((..((.(((((....))))).))..).)))).)))))))).            |
+| TE20132 | 412             | 0.11 | 0.38 | 0.27 | 0.77 | auugcaauugaaugacucgauauguuuauuuaaacauggaaagaaaauuauugcaag              | .(((((((..(((...((..(((((((....)))))))....))..)))))))))).              |
+| TE19834 | BS              | 0.11 | 0.52 | 0.25 | 0.65 | aaacacauccuucaggccuuugaugacaaggaauacugcaaugguguguuc                    | .((((((((.(((((..(((((....)))))....))).)).)))))))).                    |
+| TE19626 | Burdock         | 0.11 | 0.39 | 0.21 | 0.69 | augugucguggagaaaagcggcucaugucgcuuuuaaaguuuucaaagauuacga                | .((((((.((((((((((((((....)))))))).....))))))..)).)))).                |
+| TE19938 | Cr1a            | 0.10 | 0.42 | 0.26 | 0.79 | uuuguagaucaaauguaucaccgugucaacacgguuuuaugaaacgcagaucaacaau             | .((((.((((...(((.((((((((....)))))).....)).)))..)))).)))).             |
+| TE18906 | Doc2            | 0.11 | 0.43 | 0.21 | 0.63 | acuguucagcuauauucuaagauguugcacaagcauuugaccgagucuggcuggaagga            | .((.((((((((.((((..(((((((.....)))))))....)))).)))))))).)).            |
+| TE20064 | FB              | 0.10 | 0.48 | 0.22 | 0.58 | uuuuauuuuaaagaggugggcuaaggaaauugguuguauuuuaaaagugggc                   | .((((((((...((((((((((((.....)))))).)))))).)))))))).                   |
+| TE19713 | G2              | 0.08 | 0.19 | 0.22 | 0.59 | ugcuggcaauccucuccaaaauacucgaaagaguauuucugcggagaguguugccaguac           | (((((((((..((((((.((((((((....))))))))....))))))..))))))))).           |
+| TE19620 | HMS-Beagle      | 0.09 | 0.39 | 0.21 | 0.67 | uaaguauauuauuauuauuauauuauuauuauaauauuauuauuauuauuauauuuu              | .(((((((.((.((.((..(((((((....)))))))...)).)).)).))))))).              |
+| TE20189 | I-element       | 0.02 | 0.00 | 0.22 | 0.67 | augcacaccucccucgucacucuugauuuuucaagagccuucgaucgaguaggugugcac           | .(((((((((..((((((.(((((((....))))))).....)).)))).))))))))).           |
+| TE20177 | Idefix          | 0.20 | 0.61 | 0.08 | 0.29 | guuuuguaaucauuuagugaaauaaaaacuauaauuuuuuucacuuauaaauauugcaagaa         | .(((((((((.(((((((((((.(((........))).)))))))...))))))))))))).         |
+| TE20235 | R1-element      | 0.22 | 0.54 | 0.10 | 0.34 | ugcgcacgagugcuccuccgcaauuuuuucccaguugcggaguccgaagcaccgauugcc           | .(((..((.((((((((((((((((.......))))))))))...).)))))))..))).           |
+| TE20275 | Rt1a            | 0.11 | 0.45 | 0.21 | 0.60 | cguagugcuucuaagugaaccauaccuuccugguguggguaacucaggagugcuacu              | .(((((((((((.(((...(((((((.....)))))))...))).))))))))))).              |
+| TE19344 | Rt1a            | 0.11 | 0.51 | 0.27 | 0.83 | ggcauaucagcagcaaaggcgaaugcuuuuaaggaccugauugauagcg                      | .((.(((((((((.((((((....))))))......))).)))))))).                      |
+| TE19344 | Rt1a            | 0.11 | 0.38 | 0.21 | 0.54 | cguagugcuuuugagugaaccauaccuaccugguguggguaacucaggagugcuacu              | .(((((((((((((((...(((((((.....)))))))...))))))))))))))).              |
+| TE20173 | Rt1b            | 0.11 | 0.61 | 0.25 | 0.69 | cggcgcucauugauuuggccucugugcgaacggaagcucaaggaauagcacua                  | .((.(((.(((..((((((.(((((....))))).)).)))).)))))).)).                  |
+| TE19304 | Rt1b            | 0.11 | 0.51 | 0.25 | 0.70 | ucgagaucccccaccagaggagucgguaacccgacccauggugacggaaucucgg                | .((((((((..(((((..((.(((((....))))))).)))))..)).)))))).                |
+| TE19740 | Rt1b            | 0.11 | 0.54 | 0.25 | 0.61 | gggcgauagagauguucgaaggugcuacuagcgagcacugcuugacuagccguucuaccca          | .((.(.(((((..((((((.((((((.(....)))))))..))))...))..)))))))).          |
+| TE20245 | Rt1c            | 0.10 | 0.27 | 0.22 | 0.72 | caggccgcaaguugacacuacgcauuaauaaaugcguccgauguuuuaaaaugaagccug           | .((((..((..((((.((.(((((((....))))))).....)).))))..))..)))).           |
+| TE19805 | S-element       | 0.10 | 0.44 | 0.22 | 0.67 | caaaaguguguaaauuggaauuugauguuuauuuucuuguauauuuaauauuuuua               | .((((((((.(((((.((((..(((...)))..)))).....))))))))))))).               |
+| TE19266 | S-element       | 0.10 | 0.41 | 0.26 | 0.76 | uggcacugugcauaguuucuuaauauauuuauauuauauccaauuauacuagucuu               | .((.((((.(.((((((...((((((....)))))).....)))))).))))))).               |
+| TE19273 | S-element       | 0.10 | 0.50 | 0.20 | 0.65 | aacaaaauaauuaaaaaauuuaugauuaaacuuagguuuaguguuuugug                     | .((((((((.(((((.((((((....)))).))...))))))))))))).                     |
+| TE20228 | S2              | 0.09 | 0.37 | 0.19 | 0.52 | ucgaggaguuugagauuuggcauucagagaaugaaugcagaacaauauuuaaacauuuuga          | .(((((.((((((((((..(((((((.....))))))).....))).))))))).))))).          |
+| TE19915 | Stalker2        | 0.11 | 0.42 | 0.23 | 0.71 | ugcauggccuuuaaguuugguuuuuauaaccgaaacagcuagagacucaugcu                  | .((((((.(((((..(((((((.....))))))).....))))).).))))).                  |
+| TE18944 | Tc1             | 0.22 | 0.63 | 0.10 | 0.33 | gauggaaaguugauuugcuaaaaaaaaauuauaaaauguuuauuuuuuuuuaagucagauuucaug     | .((((((..((((((((..((((((((((........)))).))))))..)))))))).)))))).     |
+| TE18945 | Tc1             | 0.10 | 0.32 | 0.26 | 0.72 | uuuuuguuuuuggucacuugcugcaaaagugcgcgaaauuaggcgguaacaaaaau               | ((((((((..(.(((..((((.(((....))))))).....))).).)))))))).               |
+| TE19334 | Transpac        | 0.09 | 0.48 | 0.23 | 0.81 | aauuuaaguuuauuuguaaaauuucaagaaauuuauaggcaguauuuuucaagua                | .(((((((..((((.((.((((((....))))))....))))))..))).)))).                |
+| TE19261 | X-element       | 0.07 | 0.34 | 0.23 | 0.61 | ccggccgaucagucuccucacuucaauuuugaagguguuuaagagacugauugcugu              | .((((.((((((((((..(((((((....)))).))).....)))))))))))))).              |
+| TE18952 | aurora-element  | 0.11 | 0.42 | 0.23 | 0.63 | agguccugccuacuugccgugucaguggaugacgcgauggaaaagaugguggaggacua            | .((((((.(((((((..(((((((.....)))))))......))).))).).)))))).            |
+| TE19926 | baggins         | 0.11 | 0.52 | 0.23 | 0.78 | uuagaagcacucugcuuguggagcauccgcuccaaaggacgcagcaugccuac                  | .(((..(((..((((((.((((((....))))))...)).))))..)))))).                  |
+| TE20203 | blood           | 0.10 | 0.46 | 0.20 | 0.74 | gguuaacaaaagugauugggacauuugguuaccauauuucacuuauugcuucaaua               | .((((((((((((((.((((((.....))).)))....)))))).))).)).))).               |
+| TE19364 | copia           | 0.20 | 0.73 | 0.12 | 0.48 | uggcagcuggugcaaaaauagaagagauggauaaaauuucucauuuacugaucacauugccu         | .(((((.((((.((.((((.((.(((((.......)))))))))))..))))))..))))).         |
+| TE19469 | copia           | 0.12 | 0.58 | 0.22 | 0.71 | aaauaauuuucguuuauggcaugagagguuuggccauauaagcaauggcaaauuauua             | .(((((((((((((((((((.(....).....)))))).....))))).)))))))).             |
+| TE18972 | diver           | 0.09 | 0.50 | 0.23 | 0.75 | ggagccgaccuuauggcacaacucuuguugccuggaacuaagauuggcuug                    | .(((((((.((((.(((((((...))).))))......)))).))))))).                    |
+| TE20264 | gypsy2          | 0.19 | 0.52 | 0.11 | 0.46 | ucugcgaaaaguuccgcgaagaugcacuacguguguuuguuucgggacuuaagcguagu            | .(((((..((((((((.((((((((((...)))))))).)).))))))))...))))).            |
+| TE19930 | gypsy3          | 0.11 | 0.59 | 0.23 | 0.67 | aggucagauagcgcuaauugcaggagcaauuuucugcgcucucauuugcaucg                  | .(((((((((((((.((((((....))))))....)))))...))))).))).                  |
+| TE19103 | gypsy           | 0.11 | 0.52 | 0.21 | 0.60 | ccuggcagcggaaagcugacacuuccuaccgggaguguugcuucacgcugcaaga                | .((.((((((..((((.(((((((((....)))))))))))))..)))))).)).                |
+| TE19800 | hopper2         | 0.11 | 0.34 | 0.21 | 0.57 | auugacaugacagacauauuaauauuguccucauauuaaaaaaugagcuggaugucaac            | .(((((((..(((.(((.(((((((.(....))))))))...)))..))).))))))).            |
+| TE19901 | hopper          | 0.11 | 0.45 | 0.23 | 0.70 | cguugugauucugcgcccuuacgaguucaucugcuugcugucuucggccguuuauaaua            | .(((((((...((.(((..(((((((......))))).)).....))))).))))))).            |
+| TE19870 | invader2        | 0.10 | 0.42 | 0.26 | 0.77 | uauaaguuggaaauuucgaaaagaucaggugaucuuaaaugucaggauggucgaauugua           | .((((.((((..(((..((.((((((....)))))).....))..)))..)))).)))).           |
+| TE20319 | invader3        | 0.06 | 0.31 | 0.24 | 0.76 | aguauaucauugcuaucucgcucuuacuuauaagcuagcauuaagagauaagaauguaca           | .((((((..((..(((((((((((((....))))..))).....)))))).)))))))).           |
+| TE19234 | invader4        | 0.10 | 0.47 | 0.24 | 0.65 | aagucguuaguuaucaagcgaacauauaaauauucgcaugaauguaauggugacuc               | .((((((((..(((((.(((((.((....)).))))).)).)))...)))))))).               |
+| TE20045 | jockey          | 0.11 | 0.45 | 0.23 | 0.67 | gugauacgcucgcggauuaacaaggggcucugaggagcuucggauauuccucagcgaucac          | .((((.((((.(.(((.((....(((((((....)))))))...)).))).))))))))).          |
+| TE19239 | mariner2        | 0.10 | 0.32 | 0.18 | 0.52 | ucaauuagagaagguuuggaauggccaaucuguuccauugugauuuuuucuauugu               | .((((.((((((((((((((((((.....))))))))....)))))))))))))).               |
+| TE20135 | mdg1            | 0.22 | 0.55 | 0.10 | 0.29 | caugaucaaaaggaguaaccacagugacugaaugucaucuguauggucgacuauuuuuaaguuauu     | .(((((..((((((((.(((((((((((.....)))).))))..)))..))).)))))..))))).     |
+| TE20171 | mdg3            | 0.11 | 0.46 | 0.19 | 0.57 | guuuuccaguugaugcucucgcucucgccaaagagacgauaaccgauuacgaugggaaaac          | .((((((.((((.((.(((((.((((......))))))).....)).)))))).)))))).          |
+| TE19900 | qbert           | 0.09 | 0.39 | 0.23 | 0.79 | uuaucgguauauucccgaauuuugaauuuauuaagaacaguguggauauugauau                | .((((((((...(((((..((((((.....))))))....)).))))))))))).                |
+| TE20199 | roo             | 0.09 | 0.31 | 0.21 | 0.73 | ucauggaccgcguuggcagaaggcauucccucugcgccucaaugcugcucugugc                | .(((((((.(((((((((((.((....)).)))))....)))))).).)))))).                |
+| TE19253 | transib4        | 0.11 | 0.50 | 0.25 | 0.70 | gcgccuguauggauuuccguuucuaauuuaggauuguacaauuucaauacgggacgg              | .((((((((((((.((.((.(((((...))))).))...)).))).))))))).)).              |
++---------+-----------------+------+------+------+------+------------------------------------------------------------------------+------------------------------------------------------------------------+
